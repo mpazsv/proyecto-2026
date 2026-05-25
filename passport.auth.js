@@ -2,9 +2,11 @@
 import passport from "passport";
 import{ Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import {AppDataSource} from "../config/configDb.js";
-import Usser from "../entity/user.entity.js";
+import User from "../entity/user.entity.js";
 import { JWT_SECRET } from "../config/configEnv.js";
 
+//revisa las cookies para ver si el usuario tiene un token correcto
+//y comprueba su existencia en la base de datos 
 const cookieExtractor = (req) => {
     let token = null;
     if (req && req.cookies){
